@@ -1,0 +1,185 @@
+/* start variables */
+:root {
+  --main-color: #9dbacc;
+  --second-color: #c18b57;
+  --thre-color: #37352f;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--thre-color);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background-color: var(--second-color);
+}
+/* End variables */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*small scren*/
+@media (min-width: 768px)  {
+  .container {
+      width: 750px;
+  }
+}
+/*moyen scren*/
+@media (min-width: 992px) {
+  .container {
+      width: 970px;
+  }
+}
+/*large scren*/
+@media (min-width: 1200px) {
+  .container {
+      width: 1170px;
+  }
+}
+body {
+  font-family: 'Cairo', sans-serif;
+}
+
+/*Start nav bar*/
+.nav {
+  box-shadow: 2px 2px 10px 4px rgb(0 0 0 / 20%);
+}
+.nav ul > li{
+  position: relative;
+}
+.nav ul > li::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--second-color);
+  transition: .3s;
+  display: block;
+  bottom: -2px;
+}
+.nav ul > li:hover::after{
+  width: 100%;
+}
+.nav .icons {
+  gap: 5px;
+}
+.nav  i{
+  width: 40px;
+  height: 40px;
+  background-color: var(--thr-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.nav  i {
+  border: 2px solid transparent;
+  transition: .3s;
+}
+.nav  i:hover {
+  border-color: var(--second-color);
+}
+.nav  .bars {
+  display: none;
+}
+.nav .icons a{
+  position: relative;
+}
+.nav .icons a::after{
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: red;
+  border-radius: 50%;
+  top: 6px;
+  right: 9px;
+}
+@media (max-width: 767px) {
+  .nav ul {
+    display: none;
+    z-index: -1;
+  }
+  .nav .bars {
+    display: flex;
+  }
+  .nav .bars:hover + ul {
+    display: flex;
+    z-index: 1;
+  }
+  .nav h1 {
+    flex: 2;
+    text-align: center;
+  }
+}
+/* End Nav Bar */
+
+/*Start shop*/
+.filter .btn {
+  border: 1px solid white;
+  cursor: pointer;
+}
+.filter .btn:hover,
+.filter .btn.active {
+  color: var(--second-color);
+  border-color: var(--second-color);
+}
+
+.boxes {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.boxes .box {
+  height: fit-content;
+  background-color: var(--thre-color);
+  transition: .3s;
+  box-shadow: 0 0 7px rgb(18 18 18 / .8);
+}
+.boxes .box:hover {
+  transform: translateY(-5px);
+}
+.boxes .box .img {
+  height: 50%;
+  background-color: black;
+}
+.boxes .box .img img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.03);
+  transition: .3s;
+}
+.boxes .box .img img:hover {
+  transform: rotate(5deg)scale(1.1);
+  opacity: 0.5;
+}
+.boxes .box .info {
+  margin: 10px 0 0; 
+  padding: 10px 0;
+  border-bottom: 1px solid #aaa;
+}
+.boxes .box .info p {
+  line-height: 1.5;
+}
+.boxes .box .info .rate {
+  color: rgb(235, 235, 0);
+  margin: auto;
+}
+.boxes .box button {
+  border: none;
+  padding: 20px 0;
+  font-size: 24px;
+  cursor: pointer;
+  background-image: linear-gradient(90deg, var(--second-color) 50%, var(--thre-color) 50% );
+  background-size: 200% 100%;
+  background-position: left;
+}
+.boxes .box button:hover {
+  background-position: right;
+}
